@@ -1,0 +1,10 @@
+{
+  "workbench.colorCustomizations": {
+    // https://code.visualstudio.com/api/references/theme-color
+
+    "titleBar.activeBackground": "#0e2e41",
+    "titleBar.activeForeground": "#fff6fff8",
+    "statusBar.background": "#0e2e41",
+    "activityBar.background": "#0e2e41"
+  }
+}

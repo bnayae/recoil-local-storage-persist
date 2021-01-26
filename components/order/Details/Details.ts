@@ -16,15 +16,6 @@ export const Details = styled(DetailsRaw)`
   }
 
   .count-input {
-    font-size: 1.5rem;
-  }
-
-  .next {
-    font-size: 1.5rem;
-    padding: 0.2rem 1rem;
-    border: solid 0.2rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    justify-self: start;
+    font-size: 1rem;
   }
 `;

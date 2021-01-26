@@ -10,19 +10,20 @@ export const SizePicker = styled(SizePickerRaw)`
 
   .item {
     /* font-size: 3rem; */
-    padding: 1rem;
-    border: solid 0.1rem;
-    border-radius: 1rem;
+    padding: 0.2rem;
+    border: solid 0.05rem;
+    border-radius: 0.3rem;
     cursor: pointer;
   }
 
   .selected {
     font-weight: bold;
-    border: solid 0.2rem;
+    border: solid 0.1rem;
   }
 
   .title {
     grid-area: title;
+    margin: 0;
   }
 
   .options {

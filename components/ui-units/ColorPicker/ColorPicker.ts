@@ -10,6 +10,7 @@ export const ColorPicker = styled(ColorPickerRaw)`
 
   .color-title {
     grid-area: title;
+    margin: 0;
   }
 
   .picker {

@@ -7,7 +7,7 @@ export const CounterRaw = ({ className, state }: ICounterProps) => {
 
   return (
     <div className={className}>
-      <h3 className="counter-title">Select color:</h3>
+      <h3 className="counter-title">Counter:</h3>
       <input
         type="number"
         value={value}

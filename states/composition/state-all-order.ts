@@ -1,4 +1,4 @@
-import { RecoilState, selector, selectorFamily, waitForAll } from 'recoil';
+import { DefaultValue, selector, waitForAll } from 'recoil';
 import { stateOrder, stateTracking } from '..';
 import { guardRecoilDefaultValue } from '../../guards';
 import { IOrder } from '../../interfaces';
@@ -22,6 +22,7 @@ export const stateAllOrder = selector<IOrder[]>({
       const keys = get(stateTracking);
       keys.forEach((k) => {
         const state = stateOrder(k);
+        console.log(`## RESET [${state.key}]`);
         reset(state);
       });
       reset(stateTracking);

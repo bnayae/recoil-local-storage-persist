@@ -5,7 +5,7 @@ export const Details = styled(DetailsRaw)`
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   grid-auto-rows: max-content;
   grid-row-gap: 1.5rem;
   width: 100rem;

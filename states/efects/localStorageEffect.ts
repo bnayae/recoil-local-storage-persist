@@ -7,7 +7,7 @@ import { guardRecoilDefaultValue } from '../../guards';
  * @param entry local storage entry
  * @see https://recoiljs.org/docs/guides/atom-effects/
  */
-export const localStorageEffect = (entry: string): AtomEffect<string> => ({
+export const localStorageEffect = <T>(entry: string): AtomEffect<T> => ({
   setSelf,
   onSet,
   // resetSelf
@@ -25,20 +25,11 @@ export const localStorageEffect = (entry: string): AtomEffect<string> => ({
         node.key
       );
     }
-    console.log(`### ${trigger}`, {
-      key: node.key,
-      savedValue,
-    });
 
     setSelf(JSON.parse(savedValue));
   }
 
-  onSet((newValue: string | DefaultValue, oldValue: string | DefaultValue) => {
-    console.log(`### ${trigger}`, {
-      key: node.key,
-      newValue,
-      oldValue,
-    });
+  onSet((newValue: T | DefaultValue /* , oldValue: T | DefaultValue */) => {
     if (guardRecoilDefaultValue(newValue)) {
       localStorage.removeItem(entry);
     } else {

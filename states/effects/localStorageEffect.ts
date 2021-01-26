@@ -11,21 +11,13 @@ export const localStorageEffect = <T>(entry: string): AtomEffect<T> => ({
   setSelf,
   onSet,
   // resetSelf
-  trigger,
-  node,
+  // trigger,
+  // node,
 }): void => {
   // handle init
   const savedValue =
     typeof window !== 'undefined' ? localStorage.getItem(entry) : undefined;
   if (savedValue != null) {
-    if (trigger === 'set') {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `Local Storage [${entry}]: unexpected override of recoil state`,
-        node.key
-      );
-    }
-
     setSelf(JSON.parse(savedValue));
   }
 

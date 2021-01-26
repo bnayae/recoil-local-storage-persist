@@ -1,5 +1,5 @@
 import { atomFamily } from 'recoil';
-import { localStorageEffect } from '../efects/localStorageEffect';
+import { localStorageEffect } from '../effects/localStorageEffect';
 
 /**
  * Represent single color choice of specific product

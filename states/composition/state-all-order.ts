@@ -22,7 +22,6 @@ export const stateAllOrder = selector<IOrder[]>({
       const keys = get(stateTracking);
       keys.forEach((k) => {
         const state = stateOrder(k);
-        console.log(`## RESET [${state.key}]`);
         reset(state);
       });
       reset(stateTracking);

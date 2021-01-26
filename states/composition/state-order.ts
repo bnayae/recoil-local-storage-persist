@@ -33,7 +33,6 @@ export const stateOrder = selectorFamily<
   set: (familyKey) => ({ set, reset }, value) => {
     // reset (when recoil's value is empty)
     if (guardRecoilDefaultValue(value)) {
-      console.log(`## RESET familyKey=[${familyKey}]`);
       reset(stateColor(familyKey));
       reset(stateSize(familyKey));
       reset(stateCount(familyKey));

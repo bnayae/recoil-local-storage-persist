@@ -1,4 +1,4 @@
-import { DefaultValue, selector, waitForAll } from 'recoil';
+import { selector, waitForAll } from 'recoil';
 import { stateOrder, stateTracking } from '..';
 import { guardRecoilDefaultValue } from '../../guards';
 import { IOrder } from '../../interfaces';

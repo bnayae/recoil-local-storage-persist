@@ -1,6 +1,4 @@
 import React from 'react';
-import { SketchPicker } from 'react-color';
-import Block from 'react-color/lib/components/block/Block';
 import { useRecoilState } from 'recoil';
 import { IColorPickerProps } from './IColorPickerProps';
 

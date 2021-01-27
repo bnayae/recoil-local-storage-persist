@@ -1,6 +1,6 @@
 import { atomFamily } from 'recoil';
 import { Size } from '../../interfaces';
-import { localStorageEffect } from '../effects/localStorageEffect';
+import { effectStrategy } from '../effects';
 
 /**
  * Represent single size choice of specific product
@@ -8,7 +8,5 @@ import { localStorageEffect } from '../effects/localStorageEffect';
 export const stateSize = atomFamily<Size, string /* recoil family key */>({
   key: 'state-size',
   default: Size.medium,
-  effects_UNSTABLE: (familyKey) => [
-    localStorageEffect(`recoil-state-size~${familyKey}`),
-  ],
+  effects_UNSTABLE: (familyKey) => [effectStrategy(familyKey, 'size')],
 });

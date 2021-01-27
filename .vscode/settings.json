@@ -6,5 +6,8 @@
     "titleBar.activeForeground": "#fff6fff8",
     "statusBar.background": "#0e2e41",
     "activityBar.background": "#0e2e41"
-  }
+  },
+  "cSpell.words": [
+    "Serializable"
+  ]
 }

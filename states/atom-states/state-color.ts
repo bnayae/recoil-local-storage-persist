@@ -1,5 +1,5 @@
 import { atomFamily } from 'recoil';
-import { localStorageEffect } from '../effects/localStorageEffect';
+import { effectStrategy } from '../effects';
 
 /**
  * Represent single color choice of specific product
@@ -10,7 +10,5 @@ export const stateColor = atomFamily<
 >({
   key: 'state-color',
   default: 'black',
-  effects_UNSTABLE: (familyKey) => [
-    localStorageEffect(`recoil-state-color~${familyKey}`),
-  ],
+  effects_UNSTABLE: (familyKey) => [effectStrategy(familyKey, 'color')],
 });

@@ -14,12 +14,6 @@ export const ColorPickerRaw = ({ className, state }: IColorPickerProps) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      {/* <Block
-        className="picker"
-        color={value}
-        triangle="hide"
-        onChangeComplete={(color: { hex: string }) => setValue(color.hex)}
-      /> */}
     </div>
   );
 };

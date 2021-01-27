@@ -7,8 +7,10 @@ import { guardRecoilDefaultValue } from '../../guards';
  * @param key local storage entry
  * @see https://recoiljs.org/docs/guides/atom-effects/
  */
-export const localStorageGroupEffect = (entry: string) => <T>(
-  key: string
+export const localStorageCentralEffect = <T>(
+  family: string,
+  key: string,
+  entry = 'recoil-state'
 ): AtomEffect<T> => ({
   setSelf,
   onSet,
@@ -16,26 +18,29 @@ export const localStorageGroupEffect = (entry: string) => <T>(
   // trigger,
   // node,
 }): void => {
+  const objKey = `${family}~${key}`;
+
   // handle init
   const entryJson =
     typeof window !== 'undefined' ? localStorage.getItem(entry) : undefined;
-  if (entryJson == null) throw Error('SSR');
-  const entryObject = JSON.parse(entryJson);
-  const savedValue = entryObject[key];
-  setSelf(savedValue);
+  if (entryJson != null) {
+    const entryObject = JSON.parse(entryJson);
+    const savedValue = entryObject[objKey];
+    if (savedValue) setSelf(savedValue);
+  }
 
   onSet((newValue: T | DefaultValue /* , oldValue: T | DefaultValue */) => {
     const entryJson =
       typeof window !== 'undefined' ? localStorage.getItem(entry) : undefined;
-    if (entryJson == null) throw Error('SSR');
 
-    const entryObject = JSON.parse(entryJson);
+    const entryObject = entryJson == null ? {} : JSON.parse(entryJson);
 
     if (guardRecoilDefaultValue(newValue)) {
-      delete entryObject[key];
+      delete entryObject[objKey];
     } else {
-      localStorage[key] = newValue;
+      entryObject[objKey] = newValue;
     }
+    console.log('# storing ...');
     const json = JSON.stringify(entryObject);
     localStorage.setItem(entry, json);
   });
